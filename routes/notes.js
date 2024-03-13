@@ -1,7 +1,9 @@
+//defining global variables
 const router = require("express").Router();
 const fs = require("fs");
 const { v4: uuidv4 } = require('uuid');
 
+//creating a get route for the data
 router.get("/", (req, res) => {
   fs.readFile("./db.json", (err, data) => {
     if (err) throw err;
@@ -9,6 +11,7 @@ router.get("/", (req, res) => {
   });
 });
 
+//post route for the new and old notes
 router.post("/", (req, res) => {
   console.log(req.body);
 
@@ -32,4 +35,5 @@ router.post("/", (req, res) => {
   }
 });
 
+//exporting 
 module.exports = router;
